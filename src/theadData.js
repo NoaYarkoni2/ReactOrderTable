@@ -1,0 +1,16 @@
+export const theadData = [
+    'SESS_TMPL_ID',
+    'TOTAL',
+    'DELIVERY_CHARGE',
+    'DELIVERY_METHOD',
+    'PAYMENT_METHOD',
+    'CREATED',
+    'ENDED',
+    'SESSION',
+    'CUST_NAME',
+    'ORDER_NUM',
+    'CITY',
+    'STREET_ADDR',
+    'NOTES',
+    'STATUS',
+];
