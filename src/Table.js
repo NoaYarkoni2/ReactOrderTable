@@ -5,7 +5,7 @@ export default function Table({ theadData, tbodyData }) {
         <table>
             <thead>
                 <tr>
-                    {theadData.map(heading => (
+                    {theadData.map((heading) => (
                         <th key={heading}>{heading}</th>
                     ))}
                 </tr>
@@ -13,8 +13,8 @@ export default function Table({ theadData, tbodyData }) {
             <tbody>
                 {tbodyData.map((row, rowIndex) => (
                     <tr key={rowIndex}>
-                        {theadData.map((heading, colIndex) => (
-                            <td key={colIndex}>{row[heading]}</td>
+                        {theadData.map((key) => (
+                            <td key={`${rowIndex}-${key}`}>{row[key]}</td>
                         ))}
                     </tr>
                 ))}

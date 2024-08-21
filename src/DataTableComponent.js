@@ -11,6 +11,7 @@ const DataTableComponent = ({ data }) => {
       data={data}
       pagination
       highlightOnHover
+      striped
     />
   );
 };

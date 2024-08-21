@@ -10,7 +10,9 @@ const fetchOrders = async () => {
     try {
       const response = await axios.get(`${API_URL}/get-all-session`);
       console.log('Fetch Orders Response:', response.data);
-      return response.data;
+      const flattenedData = response.data.flat(); // Flatten the array of arrays into a single array
+      return flattenedData;
+    //   return response.data;
     } catch (error) {
       console.error('Error fetching orders:', error);
       return [];
@@ -29,39 +31,9 @@ const OrdersTable = () =>{
     
     console.log('Orders:', orders);
 
-    const tbodyData = orders.map(order => ({
-        'SESS_TMPL_ID': order.SESS_TMPL_ID,
-        'TOTAL': order.TOTAL,
-        'DELIVERY_CHARGE': order.DELIVERY_CHARGE,
-        'DELIVERY_METHOD': order.DELIVERY_METHOD,
-        'PAYMENT_METHOD': order.PAYMENT_METHOD,
-        'CREATED': order.CREATED,
-        'ENDED': order.ENDED,
-        'SESSION': order.SESSION,
-        'CUST_NAME': order.CUST_NAME,
-        'ORDER_NUM': order.ORDER_NUM,
-        'CITY': order.CITY,
-        'STREET_ADDR': order.STREET_ADDR,
-        'NOTES': order.NOTES,
-        'STATUS': order.STATUS,
-    }));
 
-    const theadData = [
-        'SESS_TMPL_ID',
-        'TOTAL',
-        'DELIVERY_CHARGE',
-        'DELIVERY_METHOD',
-        'PAYMENT_METHOD',
-        'CREATED',
-        'ENDED',
-        'SESSION',
-        'CUST_NAME',
-        'ORDER_NUM',
-        'CITY',
-        'STREET_ADDR',
-        'NOTES',
-        'STATUS',
-    ];
+    const theadData = orders.length > 0 ? Object.keys(orders[0]) : [];
+    const tbodyData = orders;
     
     return (
         <div>
