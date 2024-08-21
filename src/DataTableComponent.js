@@ -1,19 +1,26 @@
-
 import React from 'react';
 import DataTable from 'react-data-table-component';
-import { columns } from './columns';  // Adjust the path as necessary
+import { columnMapping } from './columnMapping';
 
-const DataTableComponent = ({ data }) => {
-    console.log(data);
-  return (
-    <DataTable
-      columns={columns}
-      data={data}
-      pagination
-      highlightOnHover
-      striped
-    />
-  );
-};
 
-export default DataTableComponent;
+
+export default function DataTableComponent({ theadData, tbodyData }) {
+    // Convert theadData to columns format required by DataTable
+    const columns = theadData.map((heading) => ({
+        name: columnMapping[heading.toUpperCase()] || heading,
+        selector: row => row[heading],
+        sortable: true,
+    }));
+    console.log('Columns:', columns);
+
+    return (
+        <DataTable
+            columns={columns}
+            data={tbodyData}
+            pagination
+            highlightOnHover
+            striped
+        />
+    );
+}
+

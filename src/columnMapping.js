@@ -1,0 +1,16 @@
+export const columnMapping = {
+    SESS_TMPL_ID: 'Session Template ID',
+    TOTAL: 'Total',
+    DELIVERY_CHARGE: 'Delivery Charge',
+    DELIVERY_METHOD: 'Delivery Method',
+    PAYMENT_METHOD: 'Payment Method',
+    CREATED: 'Created Date',
+    ENDED: 'Ended Date',
+    SESSION: 'Session ID',
+    CUST_NAME: 'Customer Name',
+    ORDER_NUM: 'Order Number',
+    CITY: 'City',
+    STREET_ADDR: 'Street Address',
+    NOTES: 'Notes',
+    STATUS: 'Status',
+};
